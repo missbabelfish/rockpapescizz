@@ -18,14 +18,9 @@ function playGame() {
         const computerChoice = getComputerChoice()
     
         // determine round winner
-        if (
-            // losing conditions
-            (humanChoice === 'rock' && computerChoice === 'paper') ||
-            (humanChoice === 'paper' && computerChoice === 'scissors') ||
-            (humanChoice === 'scissors' && computerChoice === 'rock')
-        ) {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
-            computerScore++;
+        if (humanChoice === computerChoice) {
+            // tie
+            console.log(`You tie! ${computerChoice} ties ${humanChoice}`)
         } else if (
             // winning conditions 
             (humanChoice === 'rock' && computerChoice === 'scissors') ||
@@ -35,8 +30,9 @@ function playGame() {
             console.log(`You win! ${humanChoice} beats ${computerChoice}`)
             humanScore++;
         } else {
-            // tie
-            console.log(`You tie! ${computerChoice} ties ${humanChoice}`)
+            // losing conditions
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+            computerScore++;
         }
 
         console.log(
